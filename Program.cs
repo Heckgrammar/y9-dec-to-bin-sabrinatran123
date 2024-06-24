@@ -12,8 +12,10 @@ namespace Y9_DEC_TO_BIN_SKELETON
         {
             //STARTER: Practice using breakpoints and the watch window (F8 to single-step, F11 to start in single step mode)
             int myInt = 0; //just for testing single stepping
-            string myString = "12"; //watch me being cast from string to int
+            string myString = "12";
+            Console.WriteLine(myString); //watch me being cast from string to int
             int myStringAsInt = Convert.ToInt32(myString); //watch me cast from string to int
+            Console.WriteLine(myStringAsInt);
 
             //MAIN:  NUMBER CONVERSION PROGRAM
 
@@ -25,7 +27,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
         static string numberConversion(int number, int numberbase)
         {
             //CODE GOES HERE
-
+            string result = Convert.ToString(number) + Convert.ToString(numberbase);
             return result; //REMOVE THE RED LINE!
         }
     }
