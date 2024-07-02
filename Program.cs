@@ -46,7 +46,6 @@ namespace Y9_DEC_TO_BIN_SKELETON
             }
             Console.ReadLine();
             return Convert.ToString(number + numberbase);
-
         }
     }
 }
