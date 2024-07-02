@@ -35,7 +35,6 @@ namespace Y9_DEC_TO_BIN_SKELETON
             {
                 backwardsbin = backwardsbin + Convert.ToString(number % numberbase);
                 number = number / numberbase;
-                Console.WriteLine(backwardsbin);
             }
             string[] bin = new string[20];
 
