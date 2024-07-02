@@ -33,18 +33,18 @@ namespace Y9_DEC_TO_BIN_SKELETON
             string backwardsbin = null;
             while (number > 0)
             {
-                backwardsbin = backwardsbin + Convert.ToString(number % 2);
-                number = number / 2;
+                backwardsbin = backwardsbin + Convert.ToString(number % numberbase);
+                number = number / numberbase;
                 Console.WriteLine(backwardsbin);
             }
-            string[] bin = {null,null};
+            string[] bin = new string[20];
 
-            for (int i = 0; i < (backwardsbin.Length-1); i++)
+            for (int i = 0; i < (backwardsbin.Length); i++)
             {
-                bin[i] = (backwardsbin.Substring(backwardsbin.Length - i));
-                Console.WriteLine(" ");
+                bin[i] = (backwardsbin.Substring(backwardsbin.Length - (1+i), 1));
                 Console.Write(bin[i]);
             }
+            Console.ReadLine();
             return Convert.ToString(number + numberbase);
 
         }
