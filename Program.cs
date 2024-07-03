@@ -10,7 +10,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
     internal class Program
     {
         static void Main(string[] args)
-        
+
         {
             //STARTER: Practice using breakpoints and the watch window (F8 to single-step, F11 to start in single step mode)
             int myInt = 0; //just for testing single stepping
@@ -20,8 +20,8 @@ namespace Y9_DEC_TO_BIN_SKELETON
             Console.WriteLine(myStringAsInt);
 
             Console.WriteLine("Enter denary number: ");
-            numberConversion(Convert.ToInt32(Console.ReadLine()), 2);
-           
+            Console.WriteLine(numberConversion(Convert.ToInt32(Console.ReadLine()), 2));
+
             //CODE GOES HERE
         }
 
@@ -31,6 +31,9 @@ namespace Y9_DEC_TO_BIN_SKELETON
         {
             //CODE GOES HERE
             string backwardsbin = null;
+            string result = null;
+
+            Console.WriteLine(ValidationSub(number, "no"));
             while (number > 0)
             {
                 backwardsbin = backwardsbin + Convert.ToString(number % numberbase);
@@ -40,11 +43,16 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
             for (int i = 0; i < (backwardsbin.Length); i++)
             {
-                bin[i] = (backwardsbin.Substring(backwardsbin.Length - (1+i), 1));
+                bin[i] = (backwardsbin.Substring(backwardsbin.Length - (1 + i), 1));
                 Console.Write(bin[i]);
             }
-            Console.ReadLine();
-            return Convert.ToString(number + numberbase);
+
+            return result;
+        }
+        static string ValidationSub(int num, string valid);
+        {
+            
         }
     }
 }
+
