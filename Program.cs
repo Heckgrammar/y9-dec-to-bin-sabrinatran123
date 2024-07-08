@@ -18,10 +18,8 @@ namespace Y9_DEC_TO_BIN_SKELETON
             Console.WriteLine(myString); //watch me being cast from string to int
             int myStringAsInt = Convert.ToInt32(myString); //watch me cast from string to int
             Console.WriteLine(myStringAsInt);
-
             Console.WriteLine("Enter denary number: ");
             Console.WriteLine(numberConversion(Convert.ToInt32(Console.ReadLine()), 2));
-
             //CODE GOES HERE
         }
 
@@ -32,8 +30,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
             //CODE GOES HERE
             string backwardsbin = null;
             string result = null;
-
-            Console.WriteLine(ValidationSub(number, "no"));
+            Console.WriteLine("Valid? " + ValidationSub("no", number));
             while (number > 0)
             {
                 backwardsbin = backwardsbin + Convert.ToString(number % numberbase);
@@ -46,12 +43,28 @@ namespace Y9_DEC_TO_BIN_SKELETON
                 bin[i] = (backwardsbin.Substring(backwardsbin.Length - (1 + i), 1));
                 Console.Write(bin[i]);
             }
-
+            Console.ReadLine();
             return result;
         }
-        static string ValidationSub(int num, string valid);
+        static string ValidationSub(string valid, int number)
         {
-            
+            while (valid == "no")
+            {
+                if (number >= 0)
+                {
+                    valid = "yes";
+                }
+                else
+                {
+                    valid = "no";
+                }
+            }
+            return valid;
+        }
+
+    static string BinToDen(int number)
+        {
+
         }
     }
 }
