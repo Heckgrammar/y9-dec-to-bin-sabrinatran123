@@ -89,9 +89,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
         {
 
             int den = 0;
-
             string[] hexArray = new string[number.Length + 1];
-
             int[] HexNumberline = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
 
 
