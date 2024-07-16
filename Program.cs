@@ -20,7 +20,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
             Console.WriteLine(myString); //watch me being cast from string to int
             int myStringAsInt = Convert.ToInt32(myString); //watch me cast from string to int
             Console.WriteLine(myStringAsInt);
-            Console.WriteLine("Dec to bin (type db), bin to dec (type bd), hex to den (type hd) ");
+            Console.WriteLine("Dec to bin (type db), bin to dec (type bd), hex to den (type hd), hex to bin (type hb) ");
             string conversiontype = Console.ReadLine();
             if (conversiontype == "db")
             {
@@ -37,6 +37,11 @@ namespace Y9_DEC_TO_BIN_SKELETON
                 Console.WriteLine("Enter hexadecimal number: ");
                 Console.WriteLine(HexToDen(Console.ReadLine()));
             }
+            else if (conversiontype == "hb")
+            {
+                Console.WriteLine("Enter hexadecimal number: ");
+                Console.WriteLine(HexToBin(Console.ReadLine()));
+            }
             Console.ReadLine();
         }
 
@@ -47,7 +52,6 @@ namespace Y9_DEC_TO_BIN_SKELETON
             //CODE GOES HERE
             string backwardsbin = null;
             string binary = null;
-            Console.WriteLine("Valid? " + ValidationSub("no", number));
             while (number > 0)
             {
                 backwardsbin = backwardsbin + Convert.ToString(number % numberbase);
@@ -60,24 +64,8 @@ namespace Y9_DEC_TO_BIN_SKELETON
                 bin[i] = (backwardsbin.Substring(backwardsbin.Length - (1 + i), 1));
                 binary = binary + bin[i];
             }
-            Console.ReadLine();
             string result = binary;
             return result;
-        }
-        static string ValidationSub(string valid, int number)
-        {
-            while (valid == "no")
-            {
-                if (number >= 0)
-                {
-                    valid = "yes";
-                }
-                else
-                {
-                    valid = "no";
-                }
-            }
-            return valid;
         }
 
         static string BinToDen(string number)
@@ -99,15 +87,60 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
         static string HexToDen(string number)
         {
-            int hex = 0;
-            string[] hexArray
-            string[] HexNumberline = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
-            
-            for (int i = 0; i< number.Length; i++)
-            {
 
+            int den = 0;
+
+            string[] hexArray = new string[number.Length + 1];
+
+            int[] HexNumberline = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+
+
+
+            for (int i = 0; i < number.Length; i++)
+            {
+                hexArray[i] = number.Substring(i, 1);
+                if (hexArray[i] == "a")
+                {
+                    den = den + 10;
+                }
+                else if (hexArray[i] == "b")
+                {
+                    den = den + 11;
+                }
+                else if (hexArray[i] == "c")
+                {
+                    den = den + 12;
+                }
+                else if (hexArray[i] == "d")
+                {
+                    den = den + 13;
+                }
+                else if (hexArray[i] == "e")
+                {
+                    den = den + 14;
+                }
+                else if (hexArray[i] == "f")
+                {
+                    den = den + 15;
+                }
+                else
+                {
+                    den = den + Convert.ToInt32(hexArray[i]);
+                }
+            }
+            return Convert.ToString(den);
+        }
+
+            static string HexToBin(string number)
+            {
+                string numberDen = HexToDen(number);
+
+                string binary = null;
+
+            binary = DenToBin((Convert.ToInt32(numberDen)), 2);
+            return binary;
             }
         }
     }
-}
+
 
